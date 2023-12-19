@@ -13,6 +13,7 @@ function main() {
   });
   app.listen({ port, host }, (err, address) => {
     if (err) {
+      console.log(err);
       logSchema.error(logger, `Server failed to start`, {
         type: "serverStartError",
         error: err,

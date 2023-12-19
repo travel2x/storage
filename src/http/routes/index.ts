@@ -1,1 +1,1 @@
-export { default as bucket } from './bucket'
+export { default as bucket } from './bucket';

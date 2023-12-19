@@ -1,4 +1,4 @@
-type BucketResponseType = { message: string; status_code?: string; error?: string }
+type BucketResponseType = { message: string; statusCode?: string; error?: string }
 
 /**
  * Create generic respose for all buckets
@@ -8,17 +8,13 @@ type BucketResponseType = { message: string; status_code?: string; error?: strin
  * @return {BucketResponseType} Object with all paramaters
  */
 function createResponse(message: string, status?: string, error?: string): BucketResponseType {
-  const response: BucketResponseType = {
-    message,
-  }
-
-  if (status) response.status_code = status;
+  const response: BucketResponseType = { message };
+  if (status) response.statusCode = status;
   if (error) response.error = error;
-
   return response
 }
 
-function createDefaultSchema<S, P>(successResponseSchema: S, properties: P): any {
+function createDefaultSchema(successResponseSchema: any, properties: any): any {
   return {
     headers: { $ref: 'authSchema#' },
     response: {
