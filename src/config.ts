@@ -102,7 +102,7 @@ export function getConfig(): StorageConfigType {
   dotenv.config()
 
   instance = {
-    version: getOptionalConfigFromEnv('VERSION') || '0.0.0',
+    version: getOptionalConfigFromEnv('VERSION') || '1.0.0',
     keepAliveTimeout: parseInt(getOptionalConfigFromEnv('SERVER_KEEP_ALIVE_TIMEOUT') || '61', 10),
     headersTimeout: parseInt(getOptionalConfigFromEnv('SERVER_HEADERS_TIMEOUT') || '65', 10),
     // adminApiKeys: getOptionalConfigFromEnv('ADMIN_API_KEYS') || '',
