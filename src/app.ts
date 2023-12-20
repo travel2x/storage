@@ -27,7 +27,7 @@ export default function build(opts: BuildOpts = {}): FastifyInstance {
 
   app.addSchema(schemas.authSchema)
   app.addSchema(schemas.errorSchema)
-  
+
   app.register(routes.bucket, { prefix: 'bucket' })
 
   setErrorHandler(app)

@@ -1,18 +1,17 @@
-import fastifyPlugin from "fastify-plugin";
-import { Storage } from "@/storage";
-import { getConfig } from "@/config";
-import { StorageBackendAdapter } from "@/storage/backend";
+import fastifyPlugin from 'fastify-plugin'
+import { Storage } from '@/storage'
+import { getConfig } from '@/config'
+import { StorageBackendAdapter } from '@/storage/backend'
 
-declare module "fastify" {
+declare module 'fastify' {
   interface FastifyRequest {
-    storage: Storage;
+    storage: Storage
     backend: StorageBackendAdapter
   }
 }
 
-const { storageBackendType } = getConfig();
+const { storageBackendType } = getConfig()
 
 export const storage = fastifyPlugin(async (fastify) => {
-    // const storageBackend = createStorageBacken(storageBackendType)
-
-});
+  // const storageBackend = createStorageBacken(storageBackendType)
+})

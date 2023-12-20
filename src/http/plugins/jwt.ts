@@ -1,7 +1,7 @@
-import fastifyPlugin from 'fastify-plugin';
-import { createResponse } from '@/http/generic-routes';
-import { getJwtSecret, getOwner } from '@/bcrypt';
-import { HttpStatusCode } from 'axios';
+import fastifyPlugin from 'fastify-plugin'
+import { createResponse } from '@/http/generic-routes'
+import { getJwtSecret, getOwner } from '@/bcrypt'
+import { HttpStatusCode } from 'axios'
 
 declare module 'fastify' {
   interface FastifyRequest {
@@ -21,7 +21,9 @@ export const jwt = fastifyPlugin(async (fastify) => {
       request.owner = owner
     } catch (err: any) {
       request.log.error({ error: err }, 'unable to get owner')
-      return reply.status(HttpStatusCode.BadRequest).send(createResponse(err.message, '400', err.message))
+      return reply
+        .status(HttpStatusCode.BadRequest)
+        .send(createResponse(err.message, '400', err.message))
     }
   })
 })

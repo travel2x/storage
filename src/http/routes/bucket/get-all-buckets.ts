@@ -1,7 +1,7 @@
 import { FastifyInstance } from 'fastify'
 import { bucketSchema } from '@/storage/schemas'
-import { createDefaultSchema } from '@/http/generic-routes';
-import { AuthenticatedRequest} from '@/http/request';
+import { createDefaultSchema } from '@/http/generic-routes'
+import { AuthenticatedRequest } from '@/http/request'
 
 const successResponseSchema = {
   type: 'array',
@@ -23,13 +23,13 @@ const successResponseSchema = {
 }
 
 export default async function routes(fastify: FastifyInstance) {
-  const summary = 'Gets all buckets';
-  const schema = createDefaultSchema(successResponseSchema, { summary, tags: ['bucket'] });
+  const summary = 'Gets all buckets'
+  const schema = createDefaultSchema(successResponseSchema, { summary, tags: ['bucket'] })
 
   fastify.get<AuthenticatedRequest>('/', { schema }, async (request, response) => {
     const results = await request.storage.listBuckets(
       'id, name, public, owner, created_at, updated_at, file_size_limit, allowed_mime_types'
     )
     response.send(results)
-  });
+  })
 }

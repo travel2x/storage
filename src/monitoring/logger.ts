@@ -10,7 +10,7 @@ export const logger = pino({
   transport: buildTransport(),
   serializers: {
     error(error) {
-    //   return normalizeRawError(error)
+      //   return normalizeRawError(error)
     },
     res(reply) {
       return {

@@ -1,16 +1,16 @@
-type BucketResponseType = { message: string; statusCode?: string; error?: string }
+type BucketResponseType = { message: string; status_code?: string; error?: string }
 
 /**
  * Create generic respose for all buckets
  * @param message {string} Main message
- * @param status {string=} StatusCode
+ * @param status {string=} Status_code
  * @param error {string=} Error number (presented as a string)
  * @return {BucketResponseType} Object with all paramaters
  */
 function createResponse(message: string, status?: string, error?: string): BucketResponseType {
-  const response: BucketResponseType = { message };
-  if (status) response.statusCode = status;
-  if (error) response.error = error;
+  const response: BucketResponseType = { message }
+  if (status) response.status_code = status
+  if (error) response.error = error
   return response
 }
 
